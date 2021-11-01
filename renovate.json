@@ -6,7 +6,9 @@
     ":disableDependencyDashboard"
   ],
   "node": {
-    "enabled": false
+    "major": {
+      "enabled": true
+    }
   },
   "postUpgradeTasks": {
     "fileFilters": [
