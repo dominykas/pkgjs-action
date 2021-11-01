@@ -17,6 +17,6 @@
     "npm": "^8"
   },
   "dependencies": {
-    "semver": "^7.3.4"
+    "semver": "^6.3.0"
   }
 }
