@@ -12,7 +12,8 @@
     }
   ],
   "lockFileMaintenance": {
-    "schedule": "at any time"
+    "schedule": "at any time",
+    "enabled": true
   },
   "postUpgradeTasks": {
     "fileFilters": [
