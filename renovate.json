@@ -5,11 +5,12 @@
     ":maintainLockFilesWeekly",
     ":disableDependencyDashboard"
   ],
-  "node": {
-    "major": {
-      "enabled": true
+  "packageRules": [
+    {
+      "packageNames": ["node"],
+      "enabled": false
     }
-  },
+  ],
   "postUpgradeTasks": {
     "fileFilters": [
       "private-actions/*/node_modules"
