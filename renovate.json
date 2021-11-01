@@ -11,6 +11,9 @@
       "enabled": false
     }
   ],
+  "lockFileMaintenance": {
+    "schedule": "at any time"
+  },
   "postUpgradeTasks": {
     "fileFilters": [
       "private-actions/*/node_modules"
