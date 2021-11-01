@@ -7,5 +7,10 @@
   ],
   "node": {
     "enabled": false
+  },
+  "postUpgradeTasks": {
+    "fileFilters": [
+      "private-actions/*/node_modules"
+    ]
   }
 }
