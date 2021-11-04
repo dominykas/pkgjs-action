@@ -6,4 +6,6 @@ on:
 
 jobs:
   test:
-    uses: pkgjs/action/.github/workflows/node-test.yaml@main
+    uses: dominykas/pkgjs-action/.github/workflows/node-test.yaml@main
+    with:
+      runs-on: ubuntu-latest, macOS-latest
