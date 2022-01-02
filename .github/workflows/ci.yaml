@@ -7,6 +7,6 @@ on:
 jobs:
   test:
     uses: dominykas/pkgjs-action/.github/workflows/node-test.yaml@main
-    with:
-      env-test: |
+    secrets:
+      env-test: |-
         {"TESTING_TESTING":"x"}

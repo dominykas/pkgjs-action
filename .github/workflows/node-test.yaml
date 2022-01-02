@@ -46,11 +46,10 @@ on:
         required: false
         type: string
 
+    secrets:
       env-test:
         description: "testing."
-        default: "{}"
         required: false
-        type: string
 
 jobs:
 
@@ -137,7 +136,7 @@ jobs:
       id: set-test-env
       run: |
         MATRIX_VARS='{"MATRIX_NODE_VERSION":"${{ matrix.node-version }}","NODE_LTS_LATEST":"${{ needs.prepare-node-matrix.outputs.lts-latest }}"}'
-        INPUT_VARS='${{ inputs.env-test }}'
+        INPUT_VARS='${{ secrets.env-test }}'
         MERGED_VARS=$(echo ${INPUT_VARS} ${MATRIX_VARS} | jq -c -s '.[0] * .[1]')
         echo "::set-output name=test-env::${MERGED_VARS}"
 
