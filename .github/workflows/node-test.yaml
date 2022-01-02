@@ -46,6 +46,11 @@ on:
         required: false
         type: string
 
+    secrets:
+      test-env:
+        description: "Environment variables for the `test` script"
+        required: false
+
 jobs:
 
   prepare-node-matrix:
@@ -126,6 +131,11 @@ jobs:
       if: ${{ inputs.post-install-steps }}
       uses: ./.github/tmp/post-install-steps
 
+    - name: Prepare testing env
+      run: |
+        cat >> ${GITHUB_ENV} <<EOF
+        ${{ secrets.test-env }}
+        EOF
 
     - name: Run tests
       run: ${{ inputs.test-command }}

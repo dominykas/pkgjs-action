@@ -8,4 +8,7 @@ jobs:
   test:
     uses: dominykas/pkgjs-action/.github/workflows/node-test.yaml@main
     with:
-      test-command: false
+      test-command: cat ${GITHUB_ENV}
+    secrets:
+      test-env: |-
+        TESTING_TESTING=xxx
