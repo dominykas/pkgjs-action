@@ -8,4 +8,5 @@ jobs:
   test:
     uses: dominykas/pkgjs-action/.github/workflows/node-test.yaml@main
     with:
-      runs-on: ubuntu-latest, macOS-latest
+      test-command: true
+      runs-on: ubuntu-latest, macOS-latest, windows-latest
