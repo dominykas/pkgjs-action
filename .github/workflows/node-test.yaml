@@ -46,6 +46,12 @@ on:
         required: false
         type: string
 
+      env-test:
+        description: "testing."
+        default: "{}"
+        required: false
+        type: string
+
 jobs:
 
   prepare-node-matrix:
@@ -127,11 +133,17 @@ jobs:
       uses: ./.github/tmp/post-install-steps
 
 
+    - name: Set environment variables
+      id: set-test-env
+      run: |
+        MATRIX_VARS='{"MATRIX_NODE_VERSION":"${{ matrix.node-version }}","NODE_LTS_LATEST":"${{ needs.prepare-node-matrix.outputs.lts-latest }}"}'
+        INPUT_VARS='${{ inputs.env-test }}'
+        MERGED_VARS=$(echo ${INPUT_VARS} ${MATRIX_VARS} | jq -c -s '.[0] * .[1]')
+        echo "::set-output name=test-env::${MERGED_VARS}"
+
     - name: Run tests
       run: ${{ inputs.test-command }}
-      env:
-        MATRIX_NODE_VERSION: ${{ matrix.node-version }}
-        NODE_LTS_LATEST: ${{ needs.prepare-node-matrix.outputs.lts-latest }}
+      env: ${{ fromJson(steps.set-test-env.outputs.test-env) }}
 
     - name: Run post-test steps
       if: ${{ inputs.post-test-steps }}
