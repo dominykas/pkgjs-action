@@ -9,4 +9,13 @@ jobs:
     uses: dominykas/pkgjs-action/.github/workflows/node-test.yaml@main
     with:
       test-command: true
-      runs-on: ubuntu-latest, macOS-latest, windows-latest
+      runs-on: ubuntu-latest, macos-latest
+      include: |
+        - runs-on: ubuntu-latest
+          node-version: 8
+          experimental: true
+        - node-version: v14.0.0
+      exclude: |
+        - runs-on: ubuntu-latest
+          node-version: 17
+        - node-version: 16
