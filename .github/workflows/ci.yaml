@@ -9,5 +9,5 @@ jobs:
     uses: ./.github/workflows/node-test.yaml
     with:
       timeout-minutes: 1
-      test-command: sleep 3600
+      test-command: true
 
