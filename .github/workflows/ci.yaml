@@ -8,4 +8,6 @@ jobs:
   test:
     uses: ./.github/workflows/node-test.yaml
     with:
-      runs-on: ubuntu-latest, macOS-latest
+      timeout-minutes: 1
+      test-command: sleep 3600
+
